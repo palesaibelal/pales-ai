@@ -5,80 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pales.AI</title>
   <style>
-    /* Full page background with big translucent Pales.AI text */
+    /* Reset & basic styles */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
     body, html {
       height: 100%;
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: white;
-      text-align: center;
       background: linear-gradient(135deg, #1e3c72, #2a5298);
-      position: relative;
-      overflow: hidden;
+      color: white;
+      overflow-x: hidden;
     }
-    /* Large background text */
+
+    /* Big background text */
     .bg-text {
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 50%;
-      font-size: 12vw;
+      font-size: 15vw;
       font-weight: 900;
-      color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.08);
       transform: translate(-50%, -50%);
       user-select: none;
       pointer-events: none;
       white-space: nowrap;
+      z-index: 0;
     }
-    /* Content container on top */
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 40px;
+      display: flex;
+      gap: 25px;
+      z-index: 10;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 15px;
+      border-radius: 25px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    nav a:hover {
+      background-color: rgba(255, 127, 80, 0.8);
+    }
+
+    /* Main content */
     .content {
       position: relative;
-      padding: 50px 20px;
-      max-width: 600px;
-      margin: auto;
-      z-index: 1;
+      max-width: 700px;
+      margin: 150px auto 0;
+      padding: 0 20px;
+      text-align: center;
+      z-index: 5;
     }
-    h1 {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
+    .content h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      margin-bottom: 20px;
       letter-spacing: 3px;
     }
-    p {
-      font-size: 1.2rem;
+    .content p {
+      font-size: 1.3rem;
       margin-bottom: 40px;
-      color: #e0e0e0;
+      color: #dcdcdc;
+      line-height: 1.5;
     }
-    a.button {
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    .buttons a.button {
       background-color: #ff7f50;
       color: white;
-      padding: 15px 30px;
-      margin: 0 10px;
-      text-decoration: none;
+      padding: 15px 35px;
       border-radius: 30px;
-      font-weight: bold;
+      font-weight: 700;
       font-size: 1.1rem;
-      display: inline-block;
+      text-decoration: none;
       transition: background-color 0.3s ease;
     }
-    a.button:hover {
+    .buttons a.button:hover {
       background-color: #e06340;
     }
+
+    /* Responsive */
     @media (max-width: 600px) {
-      .bg-text {
-        font-size: 8vw;
+      nav {
+        right: 20px;
+        gap: 15px;
       }
-      h1 {
+      .content h1 {
         font-size: 2.5rem;
+      }
+      .buttons a.button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+      .bg-text {
+        font-size: 10vw;
       }
     }
   </style>
 </head>
 <body>
   <div class="bg-text">Pales.AI</div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Pricing</a>
+    <a href="#">Login</a>
+  </nav>
+
   <div class="content">
     <h1>Welcome to Pales.AI</h1>
     <p>Transform your ideas into amazing videos with AI — simple, fast, and smart.</p>
-    <a href="mailto:bilal.azizi0905@gmail.com" class="button">Contact Us</a>
-    <a href="https://paypal.me/yourpaypallink" class="button" target="_blank">Buy Premium</a>
+    <div class="buttons">
+      <a href="mailto:bilal.azizi0905@gmail.com" class="button">Contact Us</a>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=bilal.azizi090512%40gmail.com&currency_code=USD" class="button" target="_blank">Buy Premium</a>
+    </div>
   </div>
 </body>
 </html>
